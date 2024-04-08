@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&display=swap');
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,*::before,*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.card a h2 {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+body {
+  height: 100vh;
+  background-color:white;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 1rem 0;
+  display: grid;
+  place-content: center;
+  
+  
+  .card {
+    max-width: 15rem;
+    color: #ffffffda;
+    padding: 1.5rem;
+    background-color: #202022;
+    
+    pointer-events: auto;
+    
+    transform: scale(1);
+    
+    opacity: 1;
+    transition: all 150ms ease-in-out; 
+    
+    display: flex;
+    flex-direction: column;
+    
+    .card-title {
+      position: relative;
+      
+      &::before {
+        content: "";
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        box-shadow: inset 0 0 3px #bb86fc;
+        background-color: transparent;
+        
+        position: absolute;
+        right: 0;
+      }
+    }
+    
+    .date {
+      color: #bb86fc;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .description {
+      font-size: 0.9rem;
+    }
+    
+    &:nth-child(even) {
+      transform: translateY(8px);
+    }
+    
+    &:nth-child(n) {
+      transform: rotate(-5deg);
+    }
+  }
+}
+
+
+
+.cards {    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2,0.1fr);
+    gap: 1.75rem;
+    pointer-events: none;
+    }
+.cards:hover > .card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.cards:hover > .card:not(:hover) {
+  opacity: 0.5;
+}
+
+@media (max-width: 1091px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    body {
+        padding-top:850px; /* Adjust this value to match the height of your header */
+      }
+  }
+
+  /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*  links sidebar CSS  */
+._social-links {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translatey(-50%);
+	padding: 1em 0.5em 1em 1em;
+	background:#62ba46;
+	border-radius: 0.5em 0 0 0.5em;
+	box-shadow: -4px 0px 0px hotpink;
+	transition: all 300ms ease;
+}
+
+._social-links:hover {
+	box-shadow: -8px 0px 20px rgb(30, 141, 80);
+	padding: 1em;
+}
+._links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+._social-link a {
+	color: #111;
+	font-size: 1.5rem;
+	transition: all 200ms ease;
+}
+._social-link a:visited {
+	color: #111;
+}
+._social-link a:hover {
+	color: rgb(30, 141, 80);
+	font-size: 1.75rem;
+}
+
+._social-link img {
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+}
+
+@media (max-width: 527px) {
+    .cards {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+    }
+
+    ._social-links {
+		position: fixed;
+		right: 0;
+		
+		top: 65%;
+		transform: translatey(-50%);
+		padding: 1em 0.5em 1em 1em;
+		background: #62ba46;
+		border-radius: 0.5em 0 0 0.5em;
+		box-shadow: -4px 0px 0px hotpink;
+		transition: all 300ms ease;
+	}
+
+    body {
+        padding-top:1550px; /* Adjust this value to match the height of your header */
+      }
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white; /* Vagy bármilyen más szín */
+    z-index: 1000; /* Vagy bármilyen más magas érték */
+  }
+  
+  header img {
+    order: 2; /* Display the logo below the menu items by default */
+    width: 50%; /* Adjust as needed */
+    height: auto;
+  }
+  
+  @media screen and (min-width: 1024px) { /* Adjust as needed */
+    header img {
+      width: 300px; /* Adjust as needed */
+      height: 140px; /* Adjust as needed */
+    }
+  
+    
+  }
+
+  
+@media screen and (min-width: 520px) {
+    header {
+      position: fixed;
+      top: 44px;
+      align-items: flex-start; /* Align the logo and menu items to the left */
+      transform: translateY(-50%); /* Move the header up by half its height to center it vertically */
+    }
+
+    header img {
+      order: 1;
+    }
+  }
+  
